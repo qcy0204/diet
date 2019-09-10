@@ -12,10 +12,17 @@ import loginqq from './views/common/loginqq.vue'
 import loginzfb from './views/common/loginzhifubao.vue'
 // 微信登陆
 import loginvx from './views/common/loginvx.vue'
-// 食谱组件
+
+// 功能二： 食谱组件
+
 import Cook from "./views/cookbook.vue"
-// 运动组件
+// 功能三： 运动组件
 import Exerice from "./views/exercise.vue"
+
+/// 功能四：我的
+import Home from "./views/home/mine.vue"
+import MyData from "./views/home/myData.vue"
+
 Vue.use(Router)
 
 export default new Router({
@@ -30,6 +37,9 @@ export default new Router({
   // 功能二：食谱 
   {path:"/cook",component:Cook},
   // 功能二：运动  
-  {path:"/exercise",component:Exerice}
+  {path:"/exercise",component:Exerice},
+  // 功能四：我的
+  {path:"/home",component:Home},
+  {path:"/home_data",component:MyData}
   ]
 })
