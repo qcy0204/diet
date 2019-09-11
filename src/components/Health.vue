@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- 1.顶部 -->
-   <mt-header>
+   <!-- <mt-header>
      
-   </mt-header>
+   </mt-header> -->
     <!-- 2.面板 -->
     <mt-tab-container v-model="active">
        <mt-tab-container-item id="home">
@@ -50,11 +50,11 @@
 
 <script>
 // 引入食谱页面组件
-import Cook from '../views/cookbook'
+import Cook from '../views/Cookbook'
 // 引入运动页面组件
-import Exercise from '../views/exercise'
+import Exercise from '../views/Exercise'
 // 引入我的页面组件
-import Me from '../views/me/mine'
+import Me from '../views/me/Mine'
 export default {
     data() {
       return {

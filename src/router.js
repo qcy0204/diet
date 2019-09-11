@@ -3,25 +3,25 @@ import Router from 'vue-router'
 // 面板与 底部导航栏
 import Health from './components/Health.vue'
 // 功能一：登陆
-import Login from './views/common/login.vue'
+import Login from './views/login/Login.vue'
 // 手机登陆
-import loginPhone from './views/common/loginPhone.vue'
+import LoginPhone from './views/login/LoginPhone.vue'
 // qq登陆
-import loginqq from './views/common/loginqq.vue'
+import Loginqq from './views/login/Loginqq.vue'
 //支付宝登陆
-import loginzfb from './views/common/loginzhifubao.vue'
+import Loginzfb from './views/login/Loginzhifubao.vue'
 // 微信登陆
-import loginvx from './views/common/loginvx.vue'
+import Loginvx from './views/login/Loginvx.vue'
 
 // 功能二： 食谱组件
 
-import Cook from "./views/cookbook.vue"
+import Cook from "./views/Cookbook.vue"
 // 功能三： 运动组件
-import Exerice from "./views/exercise.vue"
+import Exerice from "./views/Exercise.vue"
 
 /// 功能四：我的
-import Me from "./views/me/mine.vue"
-import MyData from "./views/me/myData.vue"
+import Me from "./views/me/Mine.vue"
+import MyData from "./views/me/MyData.vue"
 
 Vue.use(Router)
 
@@ -30,10 +30,10 @@ export default new Router({
   {path:"/",component:Health},
   // 功能一：登陆
   {path:"/login",component:Login},
-  {path: '/loginPhone', component: loginPhone,},
-  {path: '/loginqq', component: loginqq,},
-  {path: '/loginzfb', component: loginzfb,},
-  {path: '/loginvx', component: loginvx,},
+  {path: '/loginPhone', component: LoginPhone,},
+  {path: '/loginqq', component: Loginqq,},
+  {path: '/loginzfb', component: Loginzfb,},
+  {path: '/loginvx', component: Loginvx,},
   // 功能二：食谱 
   {path:"/cook",component:Cook},
   // 功能二：运动  
