@@ -6,10 +6,21 @@
    </mt-header>
     <!-- 2.面板 -->
     <mt-tab-container v-model="active">
-       <mt-tab-container-item id="home">首页页面</mt-tab-container-item>
-       <mt-tab-container-item id="recipe">食谱页面</mt-tab-container-item>
-       <mt-tab-container-item id="sports">运动页面</mt-tab-container-item>
-        <mt-tab-container-item id="me">我的页面</mt-tab-container-item>
+       <mt-tab-container-item id="home">
+        首页页面
+       </mt-tab-container-item>
+       <mt-tab-container-item id="recipe">
+         <!-- 食谱页面 -->
+         <my-cook></my-cook>
+        </mt-tab-container-item>
+       <mt-tab-container-item id="sports">
+         <!-- 运动页面 -->
+         <my-exercise></my-exercise>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="me">
+          <!-- 我的页面 -->
+          <my-me></my-me>
+        </mt-tab-container-item>
     </mt-tab-container>
     <!-- 3.底部 -->
      <mt-tabbar fixed v-model="active">
@@ -38,12 +49,28 @@
 </template>
 
 <script>
+// 引入食谱页面组件
+import Cook from '../views/cookbook'
+// 引入运动页面组件
+import Exercise from '../views/exercise'
+// 引入我的页面组件
+import Me from '../views/me/mine'
 export default {
     data() {
       return {
-        active:"tab1"
+        active:"home",
       }
     },
+    components:{
+      // 首页
+
+      // 食谱
+      "my-cook":Cook,
+      // 运动
+      "my-exercise":Exercise,
+      // 我的
+      "my-me":Me
+    }
 }
 </script>
 

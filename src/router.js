@@ -20,8 +20,8 @@ import Cook from "./views/cookbook.vue"
 import Exerice from "./views/exercise.vue"
 
 /// 功能四：我的
-import Home from "./views/home/mine.vue"
-import MyData from "./views/home/myData.vue"
+import Me from "./views/me/mine.vue"
+import MyData from "./views/me/myData.vue"
 
 Vue.use(Router)
 
@@ -39,7 +39,7 @@ export default new Router({
   // 功能二：运动  
   {path:"/exercise",component:Exerice},
   // 功能四：我的
-  {path:"/home",component:Home},
-  {path:"/home_data",component:MyData}
+  {path:"/me",component:Me},
+  {path:"/me_data",component:MyData}
   ]
 })
