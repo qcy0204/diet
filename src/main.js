@@ -13,9 +13,7 @@ Vue.use(Vant);
 //设置全局组件 页头部分 在任何页面可以重复使用
 // import MyHeader from "./components/myHeader"
 // Vue.component("my-header",MyHeader);
-// //设置全局组件 页尾部分 在任何页面可以重复使用
-// import myFooter from "./components/myFooter"
-// Vue.component("my-footer",myFooter);
+
 //单页面开发 组件组件中间切换url地址跳转不会更改title名字
 //设置这个可以更改你的名字
 import axios from 'axios'

@@ -7,7 +7,8 @@
     <!-- 2.面板 -->
     <mt-tab-container v-model="active">
        <mt-tab-container-item id="home">
-        首页页面
+         <!-- 首页页面 -->
+         <my-home></my-home>
        </mt-tab-container-item>
        <mt-tab-container-item id="recipe">
          <!-- 食谱页面 -->
@@ -49,6 +50,8 @@
 </template>
 
 <script>
+// 引入首页页面组件
+import Home from '../views/home/Home'
 // 引入食谱页面组件
 import Cook from '../views/Cookbook'
 // 引入运动页面组件
@@ -63,7 +66,7 @@ export default {
     },
     components:{
       // 首页
-
+      "my-home":Home,
       // 食谱
       "my-cook":Cook,
       // 运动

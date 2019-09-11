@@ -13,8 +13,9 @@ import Loginzfb from './views/login/Loginzhifubao.vue'
 // 微信登陆
 import Loginvx from './views/login/Loginvx.vue'
 
+// 功能二：首页
+import Home from './views/home/Home.vue'
 // 功能二： 食谱组件
-
 import Cook from "./views/Cookbook.vue"
 // 功能三： 运动组件
 import Exerice from "./views/Exercise.vue"
@@ -28,6 +29,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
   {path:"/",component:Health},
+  {path:"/home",component:Home},
   // 功能一：登陆
   {path:"/login",component:Login},
   {path: '/loginPhone', component: LoginPhone,},
