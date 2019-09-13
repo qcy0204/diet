@@ -21,8 +21,13 @@ import Cook from "./views/Cookbook.vue"
 import Exerice from "./views/Exercise.vue"
 
 /// 功能四：我的
-import Me from "./views/me/Mine.vue"
+import Mine from "./views/me/Mine.vue"
 import MyData from "./views/me/MyData.vue"
+import Mycollect from "./views/me/myCollect.vue"
+import Advice from "./views/me/advice.vue"
+import CopyRight from "./views/me/copyright.vue"
+import Privacy from "./views/me/privacy.vue"
+
 
 Vue.use(Router)
 
@@ -41,7 +46,11 @@ export default new Router({
   // 功能二：运动  
   {path:"/exercise",component:Exerice},
   // 功能四：我的
-  {path:"/me",component:Me},
-  {path:"/me_data",component:MyData}
+  {path:"/mine",component:Mine},
+  {path:"/me_data",component:MyData},
+  {path:"/me_collect",component:Mycollect},
+  {path:"/me_advice",component:Advice},
+  {path:"/me_copyright",component:CopyRight},
+  {path:"/me_privacy",component:Privacy}
   ]
 })

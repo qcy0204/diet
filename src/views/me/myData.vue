@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         backmain(){
-            this.$router.push("/main")
+            this.$router.push("/")
         }
     }
 }

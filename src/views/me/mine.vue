@@ -10,11 +10,11 @@
         <div class="middle_model">
             <!-- 我的收藏 -->
             <div class="mine_model">
-                <div class="myshuju" @click="mydata()">
+                <div class="myshuju" @click="mydata">
                     <img src="../../assets/home/mydata.png" alt=""> 
                     <span>我的数据</span>
                 </div>
-                <div class="myshuju">  <!--@ciick="mycollect()-->
+                <div class="myshuju" @click="mycollect">
                     <img src="../../assets/home/mysc.png" alt=""> 
                     <span>我的收藏</span>
                 </div>
@@ -27,21 +27,21 @@
         <!-- n多选项 -->
         <div class="chose_medel">
             <div class="chose_item">
-                <div class="item_box">
+                <div class="item_box" @click="myadvice">
                     <img src="../../assets/home/advice.png" alt="">
                     <span>意见反馈</span>
                 </div>
                 <img src="../../assets/home/xy.png" alt="">
             </div>
             <div class="chose_item">
-                <div class="item_box">
+                <div class="item_box" @click="mycopyright">
                     <img src="../../assets/home/sm.png" alt="">
                     <span>版权说明</span>
                 </div>
                 <img src="../../assets/home/xy.png" alt="">
             </div>
             <div class="chose_item">
-                <div class="item_box">
+                <div class="item_box" @click="myprivacy">
                     <img src="../../assets/home/ys.png" alt="">
                     <span>隐私声明</span>
                 </div>
@@ -80,11 +80,20 @@ export default {
     },
     methods: {
         mydata(){
-            this.$router.push("/mydata")
+            this.$router.push("/me_data")
         },
-    //     mycollect(){
-    //         this.$router.push("/mycollect")
-    //     }
+         mycollect(){
+           this.$router.push("/me_collect")
+         },
+         myadvice(){
+             this.$router.push("/me_advice")
+         },
+         mycopyright(){
+             this.$router.push("/me_copyright")
+         },
+         myprivacy(){
+             this.$router.push("/me_privacy")
+         }
     }
 }
 </script>

@@ -1,0 +1,107 @@
+<template>
+    <div>
+        <!-- 头部 -->
+        <div class="copyright_head">
+            <div class="tip"></div>
+            <div class="copyright_title">
+                <img src="../../assets/home/xz.png" @click="backmain()">
+                <span>版权说明</span>
+                <span @click="success()">回复</span>
+            </div>
+        </div>
+        <!-- 输入内容 -->
+        <div class="copyright_box">
+            <div class="part_1"><b>本应用的发展离不开用户的支持和帮助，我们的撑住地邀请光大用户踊跃投稿。</b></div>
+            <div class="part_2">声明</div>
+            <div class="part_3">
+                <p>本应用所有内容均为用户提供，属个人行为，不代表本应用立场，本应用不因此而承担法律责任。</p>
+                <p>各位用户提供的内容，请勿勤奋他人的知识产权及相关权利。</p>
+                <p>本应用反对任何违反中华人民共和国有关知识产权的法律法规的行为，如果广大用户发现用户提供的内容有侵犯他人权利的情形，请通过邮箱告知我们。</p>
+            </div>
+            <div class="part_4">Email:daiwofei1234@163.com</div>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            
+        }
+    },
+    methods: {
+        backmain(){
+            this.$router.push("/")
+        }
+    }
+}
+</script>
+<style>
+.copyright_container{
+    width: 100%;
+    height: 600px;
+    background: url("../../assets/home/bqback.png");
+    
+}
+/* 头部 */
+.copyright_head{
+    width: 100%;
+    height: 75px;
+    background: url("../../assets/home/titleback.png");
+    background-size: 100% 75px;
+    font-size: 15px;
+    line-height: 15px;
+    color: white;
+    position: fixed;
+    top: 0;
+}
+.tip{
+    width: 100%;
+    height: 1px;
+}
+.copyright_title{
+    width: 90%;
+    margin-top: 45px;
+    margin-left:5%; 
+    display: flex;
+    justify-content: space-between;
+}
+.copyright_title img{
+    width: 15px;
+    height: 15px;
+}
+.copyright_box{
+    width: 100%;
+    height: 600px;
+    margin-top: 75px;
+    padding: 25px;
+    box-sizing: border-box;
+    background: url("../../assets/home/bqback.png");
+    background-size: 100% 700px;
+}
+
+.part_1{
+    margin-top: 35px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.part_2{
+    margin-top: 25px;
+    font-size: 18px;
+}
+.part_3{
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 15px 0 10px 30px;
+    line-height: 25px;
+}
+.part_3 p{
+    margin-bottom: 11px;
+}
+.part_4{
+    margin-top: 60px;
+    font-size: 16px;
+    font-weight: 700;
+}
+</style>
