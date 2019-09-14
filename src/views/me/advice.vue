@@ -6,7 +6,7 @@
             <div class="collect_title">
                 <img src="../../assets/home/xz.png" @click="backmain()">
                 <span>意见反馈</span>
-                <span @click="success()">回复</span>
+                <span @click="success">回复</span>
             </div>
         </div>
         <!-- 输入内容 -->

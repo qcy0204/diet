@@ -4,7 +4,7 @@
         <div class="login_model">
            <div class="login_title">我的</div>
            <img src="../../assets/home/loginimg.png" class="login_img">
-           <div class="login_state">未登录</div>
+           <div class="login_state" @click="Login">未登录</div>
         </div>
         <!-- 我的数据 我的收藏 一个广告 -->
         <div class="middle_model">
@@ -79,6 +79,9 @@ export default {
         }
     },
     methods: {
+        Login(){
+this.$router.push("/login")
+        },
         mydata(){
             this.$router.push("/me_data")
         },

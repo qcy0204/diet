@@ -17,6 +17,7 @@ import Loginvx from './views/login/Loginvx.vue'
 import Home from './views/home/Home.vue'
 // 功能二： 食谱组件
 import Cook from "./views/Cookbook.vue"
+import Details from "./views/details.vue"
 // 功能三： 运动组件
 import Exerice from "./views/Exercise.vue"
 
@@ -43,6 +44,7 @@ export default new Router({
   {path: '/loginvx', component: Loginvx,},
   // 功能二：食谱 
   {path:"/cook",component:Cook},
+  {path:"/details",component:Details},
   // 功能二：运动  
   {path:"/exercise",component:Exerice},
   // 功能四：我的
