@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="TopStyle">
-    <img src="../assets/exercise/ad.jpg" class="AdStyle">
+    <p>健康运动</p>
   </div>
   <div class="PicturePage">
       <img src="../assets/exercise/exercise1.jpg">
@@ -21,12 +21,10 @@ body{
 }
 .TopStyle{
   width: 100%;
-  height: 75px;
-  background-image: url("../assets/exercise/exercise_head.jpg");
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-size: 100% 75px;
+  background:#35CE9F;
+  padding:10px 0 ;
+  color: #fff;
+  font-size:14px;
 }
 .AdStyle{
   width: 23px;

@@ -1,9 +1,10 @@
 <template>
   <div>
-    <van-nav-bar title="登录" left-text="返回" left-arrow @click-left="onClickLeft" />
-    <van-cell-group>
+    <my-header></my-header>
+    <van-nav-bar title="登录" left-text="返回" left-arrow @click-left="onClickLeft" class="top"/>
+    <van-cell-group >
       <van-field class="info-lg" v-model="username" label="用户名" placeholder="请输入用户名" maxlength=12 />
-      <van-field class="info-lg" v-model="password" label="密码" placeholder="请输入密码"
+      <van-field class="info-lg" type="password" v-model="password" label="密码" placeholder="请输入密码"
       maxlength=12 />
       <!-- <van-field v-model="phone" label="手机号" placeholder="请输入手机号" error-message="手机号格式错误" /> -->
       <!-- <van-field v-model="sms" center clearable label="短信验证码" placeholder="请输入短信验证码">
@@ -55,21 +56,21 @@ export default {
         this.$toast("密码格式错误");
         return;
       }
-      // var obj = { uname: uname, upwd: upwd };
-      // this.axios
-      //   .get("login", { params: obj })
-      //   .then(result => {
-      //     console.log(result.data.code);
-      //     var code = result.data.code;
-      //     if (code == -1) {
-      //       this.$messagebox("提示", "您的用户名或者密码有误");
-      //     } else {
-      //       this.$router.push("/");
-      //     }
-      //   })
-      //   .catch(err => {
-      //     console.error(err);
-      //   });
+      var obj = { uname: uname, upwd: upwd };
+      this.axios
+        .get("login", { params: obj })
+        .then(result => {
+          console.log(result.data.code);
+          var code = result.data.code;
+          if (code == -1) {
+            this.$messagebox("提示", "您的用户名或者密码有误");
+          } else {
+            this.$router.push("/");
+          }
+        })
+        .catch(err => {
+          console.error(err);
+        });
     },
     logpho(){
       this.$router.push("./loginPhone")
@@ -88,6 +89,9 @@ export default {
 };
 </script>
 <style  scoped>
+.top{
+  top: 28px;
+}
 .info-lg {
   margin-top: 8%;
   margin-left: 10%;

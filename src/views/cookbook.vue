@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="topStyle">
-    <img src="../assets/cook/ad.jpg" class="adStyle">
+    <p>健康食谱</p>
   </div>
   <div class="PicturePage">
       <img src="../assets/cook/cookbook_01breakfast.jpg">
@@ -28,12 +28,14 @@ body{
 }
 .topStyle{
   width: 100%;
-  height: 75px;
-  background-image: url("../assets/cook/head.jpg");
+  background: #35CE9F;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-size: 100% 75px;
+  padding:10px 0 10px 0;
+  color:#fff;
+  font-size: 14px;
 }
 .adStyle{
   width: 23px;

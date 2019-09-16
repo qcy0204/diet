@@ -97,7 +97,7 @@
             <span>0Kcal</span>
           </div>
         </li>
-        <li class>
+        <li>
           <div>
             <img src="../../assets/daily/milk.jpg" class="daily_img" />
             <h5>牛奶</h5>
@@ -127,6 +127,7 @@ export default {
 
 <style scoped>
 .row{
+  top:24px;
   background:url("../../assets/img/bg_color.png");
   background-size: 100% 200px;
   background-repeat: no-repeat
@@ -142,15 +143,17 @@ export default {
 }
 .com_weight {
   width: 80%;
+  color:white;
+  font-size: 14px;
 }
 .com_weight .weight {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 10px;
 }
 .com_weight .weights {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 10px;
 }
 .compile {
@@ -196,7 +199,7 @@ export default {
   width: 90%;
   margin: 0 5%;
   position: absolute;
-  top: 330px;
+  top: 310px;
 }
 
 .nav .cle {
@@ -232,7 +235,8 @@ export default {
   margin-top: 90px;
 }
 .today_pic {
-  width: 100%;
+  width: 90%;
+  border-radius: 25px;
 }
 /* 今日推荐 */
 .daily {
@@ -247,10 +251,18 @@ export default {
 }
 .daily_recommend {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-top: 20px
 }
-
+.daily_recommend div{
+  width: 90%;
+  text-align: left;
+}
+.daily_recommend span{
+  font-size: 12px;
+}
 .daily_img {
   width: 100%;
+  border-radius: 10px;
 }
 </style>
