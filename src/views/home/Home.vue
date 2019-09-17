@@ -34,19 +34,17 @@
     </div>
 
     <!-- 轮播 -->
+    <div class="row1">
     <div class="carousel">
       <van-swipe :autoplay="3000" class="swipe">
         <van-swipe-item>
-          <img src="../../assets/img/car1.jpg" class="img_a" />
+          <img src="../../assets/img/car1.png" class="img_a" />
         </van-swipe-item>
         <van-swipe-item>
-          <img src="../../assets/img/car2.jpg" class="img_a" />
+          <img src="../../assets/img/car2.png" class="img_a" />
         </van-swipe-item>
         <van-swipe-item>
-          <img src="../../assets/img/car3.jpg" class="img_a" />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="../../assets/img/car4.jpg" class="img_a" />
+          <img src="../../assets/img/car3.png" class="img_a" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -77,6 +75,7 @@
         <h5 class="nav_font">测一测</h5>
       </div>
     </div>
+    </div>
     <!-- 今日饮食 -->
     <div class="today">
       <img src="../../assets/img/pic.png" class="today_pic" />
@@ -84,7 +83,7 @@
     <!-- 今日推荐 -->
     <div class="daily">
       <p>今日推荐</p>
-      <ul class="daily_recommend">
+      <!-- <ul class="daily_recommend">
         <li>
           <div>
             <img src="../../assets/daily/egg_cakes.jpg" class="daily_img" />
@@ -110,7 +109,12 @@
             <span>636Kcal</span>
           </div>
         </li>
-      </ul>
+      </ul> -->
+      <div id="slider" class="slider">
+         <img v-for="(src,index) in imgSrc" :key="index" :src="imgSrc[index].urim" 
+         @touchstart="touchstart"
+         @touchmove="touchmove" class="slider_img"/>
+      </div>
     </div>
   </div>
 </template>
@@ -118,14 +122,49 @@
 export default {
   data() {
     return {
-      value: ""
+      value: "",
+       imgSrc:[
+        {urim:require('../../assets/daily/egg_cakes.jpg')},
+        {urim:require('../../assets/daily/cherry_tomato.jpg')},
+        {urim:require('../../assets/daily/milk.jpg')},
+        {urim:require('../../assets/daily/beef.jpg')}
+      ],
+      startPointX: 0,
+      changePointX: 0,
+      showIndex: 0,
+
     };
+  },
+  methods:{
+    show(index){
+      this.changePointX=this.startPointX;
+      let slider = document.getElementById('slider');
+      slider.style.marginLeft=`-${120*index}px`;
+    },
+    touchstart(e){
+      this.startPointX = e.changedTouches[0].pageX;
+    },
+    touchmove(e){
+      if(this.startPointX==this.changePointX){
+        return ;
+      }
+      let currPointX = e.changedTouches[0].pageX;
+      let leftSlide = this.startPointX-currPointX;
+      if(leftSlide>30&&this.showIndex<this.imgSrc.length-1){
+        this.show(++this.showIndex)
+      }else if(leftSlide<-30&&this.showIndex>0){
+        this.show(--this.showIndex)
+      }
+    },
   }
 };
 </script>
 
 
 <style scoped>
+.slider{overflow:hidden;white-space:nowrap;transition:1s;}
+.slider img{width:170px;margin-right:10px}
+
 .row{
   top:24px;
   background:url("../../assets/img/bg_color.png");
@@ -173,7 +212,9 @@ export default {
   height: 25px;
   margin-top: 5px;
 }
-
+.row1{
+  position: relative;
+}
 /* 轮播 */
 .carousel {
   margin-top: 10px;
@@ -199,7 +240,8 @@ export default {
   width: 90%;
   margin: 0 5%;
   position: absolute;
-  top: 310px;
+  top: 75%
+  
 }
 
 .nav .cle {
