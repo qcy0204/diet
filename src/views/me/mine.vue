@@ -9,8 +9,8 @@
     <!-- 我的数据 我的收藏 一个广告 -->
     <div class="middle_model">
       <!-- 我的收藏 -->
-      <div class="mine_model">
-        <div class="myshuju" @click="mydata">
+      <div class="mine_model" @click="mydata">
+        <div class="myshuju" >
           <img src="../../assets/home/mydata.png" alt />
           <span>我的数据</span>
         </div>
@@ -25,23 +25,23 @@
       </div>
     </div>
     <!-- n多选项 -->
-    <div class="chose_medel">
-      <div class="chose_item">
-        <div class="item_box" @click="myadvice">
+    <div class="chose_medel" >
+      <div class="chose_item" @click="myadvice">
+        <div class="item_box" >
           <img src="../../assets/home/advice.png" alt />
           <span>意见反馈</span>
         </div>
         <img src="../../assets/home/xy.png" alt />
       </div>
-      <div class="chose_item">
-        <div class="item_box" @click="mycopyright">
+      <div class="chose_item" @click="mycopyright">
+        <div class="item_box" >
           <img src="../../assets/home/sm.png" alt />
           <span>版权说明</span>
         </div>
         <img src="../../assets/home/xy.png" alt />
       </div>
-      <div class="chose_item">
-        <div class="item_box" @click="myprivacy">
+      <div class="chose_item" @click="myprivacy">
+        <div class="item_box" >
           <img src="../../assets/home/ys.png" alt />
           <span>隐私声明</span>
         </div>
@@ -98,7 +98,7 @@ export default {
   }
 };
 </script>
-<style >
+<style scoped>
 * {
   margin: 0;
   padding: 0;
