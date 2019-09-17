@@ -14,22 +14,22 @@
     <van-button @click.stop="login" type="primary" class="btn-lg">登录</van-button>
     <div>
       <p>
-        <a href="javascript:;" class="a-font" @click="logpho">点击使用手机号登录</a>
+        <router-link to="" class="a-font" @click.native="logpho">点击使用手机号登录</router-link>
       </p>
       <div></div>
     </div>
     <div>
       <p>—————使用第三方账号登录—————</p>
       <div>
-        <a href="javascript:;" @click="toqq">
+        <router-link to="" @click.native="toqq">
           <img class="img-icon" src="../../assets/icon/qq.png" alt />
-        </a>
-        <a href="javascript:;" @click="tovx">
+        </router-link>
+        <router-link to="" @click.native="tovx">
           <img class="img-icon" src="../../assets/icon/weixin.png" alt />
-        </a>
-        <a href="javascript:;" @click="tozfb">
+        </router-link>
+        <router-link to="" @click.native="tozfb">
           <img class="img-icon" src="../../assets/icon/zhifubao.png" alt />
-        </a>
+       </router-link>
       </div>
     </div>
   </div>
@@ -84,7 +84,9 @@ export default {
     tozfb(){
       this.$router.push("./loginzfb")
     },
-    onClickLeft() {}
+    onClickLeft() {
+      this.$router.push("./")
+    }
   }
 };
 </script>
@@ -111,10 +113,11 @@ export default {
   font-size: 14px;
   display: block;
   text-decoration: none;
+  margin: 5% 0;
 }
 .img-icon {
   width: 30px;
   margin-right: 3%;
-  margin-top: 3%;
+  margin-top: 7%;
 }
 </style>

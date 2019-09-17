@@ -1,14 +1,12 @@
 <template>
     <div class="data_container">
         <!-- 头部 -->
-        <div class="data_head">
-            <div class="tip"></div>
-            <div class="data_title">
-                <span @click="backmain()">取消</span>
-                <span>我的数据</span>
-                <span @click="backmain()">完成</span>
-            </div>
-        </div>
+        <my-header></my-header>
+        <div class="data_header">
+           <img src="../../assets/home/xz.png" alt="" @click="backmain()">
+           <span>我的数据</span>
+           <span></span>
+       </div>
         <!-- 数据 -->
         <div class="data_model">
             <div class="data_box">
@@ -44,34 +42,30 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .data_container{
     width: 100%;
     height: 800px;
     background: #f9f9f9;
 }
 /* 头部 */
-.data_head{
+.data_header{
     width: 100%;
-    height: 75px;
-    background: url("../../assets/home/titleback.png");
-    background-size: 100% 75px;
-    color: white;
-    font-size: 15px;
+    background: #35ce9f;
     position: fixed;
-    top: 0;
-}
-.tip{
-    width: 100%;
-    height: 1px;
-}
-.data_title{
-    width: 90%;
-    margin-top: 45px;
-    margin-left:5%; 
+    top:24px;
+    color: white;
+    font-size: 14px;
     display: flex;
     justify-content: space-between;
+    padding: 7px 20px;
+    box-sizing: border-box;
 }
+.data_header img{
+    width: 14px;
+    height: 14px;
+}
+
 /* 数据 */
 .data_model{
     margin-top: 75px;

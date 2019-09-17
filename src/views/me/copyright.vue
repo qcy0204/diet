@@ -1,13 +1,11 @@
 <template>
     <div>
         <!-- 头部 -->
-        <div class="copyright_head">
-            <div class="tip"></div>
-            <div class="copyright_title">
-                <img src="../../assets/home/xz.png" @click="backmain()">
-                <span>版权说明</span>
-                <span @click="success()">回复</span>
-            </div>
+         <my-header></my-header>
+         <div class="copy_header">
+           <img src="../../assets/home/xz.png" alt="" @click="backmain()">
+           <span>版权说明</span>
+           <span></span>
         </div>
         <!-- 输入内容 -->
         <div class="copyright_box">
@@ -22,7 +20,7 @@
         </div>
     </div>
 </template>
-<script>
+<script scoped>
 export default {
     data() {
         return {
@@ -40,35 +38,25 @@ export default {
 .copyright_container{
     width: 100%;
     height: 600px;
-    background: url("../../assets/home/bqback.png");
-    
+    background: url("../../assets/home/bqback.png");   
 }
 /* 头部 */
-.copyright_head{
+
+.copy_header{
     width: 100%;
-    height: 75px;
-    background: url("../../assets/home/titleback.png");
-    background-size: 100% 75px;
-    font-size: 15px;
-    line-height: 15px;
-    color: white;
+    background: #35ce9f;
     position: fixed;
-    top: 0;
-}
-.tip{
-    width: 100%;
-    height: 1px;
-}
-.copyright_title{
-    width: 90%;
-    margin-top: 45px;
-    margin-left:5%; 
+    top:24px;
+    color: white;
+    font-size: 14px;
     display: flex;
     justify-content: space-between;
+    padding: 7px 20px;
+    box-sizing: border-box;
 }
-.copyright_title img{
-    width: 15px;
-    height: 15px;
+.copy_header img{
+    width: 14px;
+    height: 14px;
 }
 .copyright_box{
     width: 100%;

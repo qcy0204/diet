@@ -1,14 +1,12 @@
 <template>
     <div>
-        <!-- 头部 -->
-        <div class="collect_head">
-            <div class="tip"></div>
-            <div class="collect_title">
-                <img src="../../assets/home/xz.png" @click="backmain()">
-                <span>意见反馈</span>
-                <span @click="success">回复</span>
-            </div>
-        </div>
+        <!-- 1.顶部 -->
+       <my-header></my-header>
+       <div class="advice_header">
+           <img src="../../assets/home/xz.png" alt="" @click="backmain()">
+           <span>意见反馈</span>
+           <span>回复</span>
+       </div>
         <!-- 输入内容 -->
         <div class="advice_input">
             <div class="advice_title">健身食谱与你共同见证更好的自己</div>
@@ -32,33 +30,23 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 /* 头部 */
-.collect_head{
+.advice_header{
     width: 100%;
-    height: 75px;
-    background: url("../../assets/home/titleback.png");
-    background-size: 100% 75px;
-    font-size: 15px;
-    line-height: 15px;
-    color: white;
+    background: #35ce9f;
     position: fixed;
-    top: 0;
-}
-.tip{
-    width: 100%;
-    height: 1px;
-}
-.collect_title{
-    width: 90%;
-    margin-top: 45px;
-    margin-left:5%; 
+    top:24px;
+    color: white;
+    font-size: 14px;
     display: flex;
     justify-content: space-between;
+    padding: 7px 20px;
+    box-sizing: border-box;
 }
-.collect_title img{
-    width: 15px;
-    height: 15px;
+.advice_header img{
+    width: 14px;
+    height: 14px;
 }
 /* 输入内容 */
 .advice_input{
@@ -88,7 +76,7 @@ export default {
     width: 100%;
     height: 50px;
     border: 0;
-    background:#67caa1;
+    background:#35ce9f;
     color: white;
     font-size: 16px;
     border-radius: 40px;

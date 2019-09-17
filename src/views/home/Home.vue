@@ -28,7 +28,10 @@
       <!-- 编辑 -->
       <div class="compile">
         <div class="edit">
-          <img src="../../assets/img/none.png" />
+          <router-link to="" @click.native="tologin">
+             <img src="../../assets/img/none.png" />
+          </router-link>
+         
         </div>
       </div>
     </div>
@@ -110,12 +113,13 @@
           </div>
         </li>
       </ul> -->
-      <div id="slider" class="slider">
+      <div id="slider" class="slider" >
          <img v-for="(src,index) in imgSrc" :key="index" :src="imgSrc[index].urim" 
          @touchstart="touchstart"
          @touchmove="touchmove" class="slider_img"/>
       </div>
     </div>
+    
   </div>
 </template>
 <script>
@@ -136,6 +140,9 @@ export default {
     };
   },
   methods:{
+    tologin(){
+      this.$router.push("./login")
+    },
     show(index){
       this.changePointX=this.startPointX;
       let slider = document.getElementById('slider');
@@ -160,10 +167,18 @@ export default {
 };
 </script>
 
-
 <style scoped>
-.slider{overflow:hidden;white-space:nowrap;transition:1s;}
-.slider img{width:170px;margin-right:10px}
+.slider{
+  overflow:hidden;
+  display: flex;
+  justify-content: space-between;
+  transition:1s;
+  
+}
+.slider img{
+  width:170px;
+  margin-right:10px
+}
 
 .row{
   top:24px;

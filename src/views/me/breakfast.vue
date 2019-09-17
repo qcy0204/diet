@@ -1,14 +1,13 @@
 <template>
   <div class="break_container">
     <!-- 头部 -->
-    <div class="break_head">
-      <div class="tip"></div>
-      <div class="break_title">
-        <img src="../../assets/home/xz.png" />
+    <!-- 1.顶部 -->
+    <my-header></my-header>
+    <div class="break_header">
+        <img src="../../assets/home/xz.png" alt="" @click="backmain()">
         <span>减脂-早餐</span>
         <span></span>
-      </div>
-    </div> 
+    </div>
     <!-- 数据 -->
     <div class="break_model">
       <div class="break_box">
@@ -40,39 +39,30 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .break_container {
   width: 100%;
   height: 500px;
   background: white;
 }
 /* 头部 */
-.break_head {
-  width: 100%;
-  height: 75px;
-  background: url("../../assets/home/titleback.png");
-  background-size: 100% 75px;
-  font-size: 15px;
-  line-height: 15px;
-  color: white;
-  position: fixed;
-  top: 0;
+.break_header{
+    width: 100%;
+    background: #35ce9f;
+    position: fixed;
+    top:24px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 20px;
+    box-sizing: border-box;
 }
-.tip {
-  width: 100%;
-  height: 1px;
+.break_header img{
+    width: 14px;
+    height: 14px;
 }
-.break_title {
-  width: 90%;
-  margin-top: 45px;
-  margin-left: 5%;
-  display: flex;
-  justify-content: space-between;
-}
-.break_title img {
-  width: 15px;
-  height: 15px;
-}
+
 /* 数据 */
 .break_model {
   margin-top: 82px;
