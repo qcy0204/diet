@@ -33,26 +33,75 @@ import Privacy from "./views/me/privacy.vue"
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-  {path:"/",component:Health},
-  {path:"/home",component:Home},
-  // 功能一：登陆
-  {path:"/login",component:Login},
-  {path: '/loginPhone', component: LoginPhone,},
-  {path: '/loginqq', component: Loginqq,},
-  {path: '/loginzfb', component: Loginzfb,},
-  {path: '/loginvx', component: Loginvx,},
-  // 功能二：食谱 
-  {path:"/cook",component:Cook},
-  {path:"/details",component:Details},
-  // 功能二：运动  
-  {path:"/exercise",component:Exerice},
-  // 功能四：我的
-  {path:"/mine",component:Mine},
-  {path:"/me_data",component:MyData},
-  {path:"/me_collect",component:Mycollect},
-  {path:"/me_advice",component:Advice},
-  {path:"/me_copyright",component:CopyRight},
-  {path:"/me_privacy",component:Privacy}
+  routes: [{
+      path: "/",
+      component:Health,
+      name: "Health"
+    },
+    {
+      path: "/home",
+      name: "home",
+      component: Home
+    },
+    // 功能一：登陆
+    {
+      path: "/login",
+      component: Login
+    },
+    {
+      path: '/loginPhone',
+      component: LoginPhone,
+    },
+    {
+      path: '/loginqq',
+      component: Loginqq,
+    },
+    {
+      path: '/loginzfb',
+      component: Loginzfb,
+    },
+    {
+      path: '/loginvx',
+      component: Loginvx,
+    },
+    // 功能二：食谱 
+    {
+      path: "/cook",
+      component: Cook
+    },
+    {
+      path: "/details",
+      component: Details
+    },
+    // 功能二：运动  
+    {
+      path: "/exercise",
+      component: Exerice
+    },
+    // 功能四：我的
+    {
+      path: "/mine",
+      component: Mine
+    },
+    {
+      path: "/me_data",
+      component: MyData
+    },
+    {
+      path: "/me_collect",
+      component: Mycollect
+    },
+    {
+      path: "/me_advice",
+      component: Advice
+    },
+    {
+      path: "/me_copyright",
+      component: CopyRight
+    },
+    {
+      path: "/me_privacy",
+      component: Privacy
+    }
   ]
 })

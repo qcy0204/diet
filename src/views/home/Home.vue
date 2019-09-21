@@ -127,7 +127,9 @@ export default {
   data() {
     return {
       value: "",
-       imgSrc:[
+      uid:"",
+      code:"",
+      imgSrc:[
         {urim:require('../../assets/daily/egg_cakes.jpg')},
         {urim:require('../../assets/daily/cherry_tomato.jpg')},
         {urim:require('../../assets/daily/milk.jpg')},
@@ -139,9 +141,23 @@ export default {
 
     };
   },
+  created() {
+    this.getRouterData()
+  },
   methods:{
+    //获取登录页面传入的UID参数
+    getRouterData() {
+      this.uid = this.$route.params.uid
+      this.code = this.$route.params.code
+      console.log('uid', this.uid)
+      console.log('code', this.code)
+    },
     tologin(){
+      if(this.uid==undefined){
       this.$router.push("./login")
+      }else{
+        this.$router.push("./me_data")
+      }
     },
     show(index){
       this.changePointX=this.startPointX;

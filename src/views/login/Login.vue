@@ -59,13 +59,19 @@ export default {
       var obj = { uname: uname, upwd: upwd };
       this.axios
         .get("login", { params: obj })
-        .then(result => {
-          console.log(result.data.code);
-          var code = result.data.code;
+        .then(res => {
+          var code = res.data.code;
+          var uid=res.data.uid;
+          console.log(res.data)
           if (code == -1) {
             this.$messagebox("提示", "您的用户名或者密码有误");
           } else {
-            this.$router.push("/");
+            this.$router.push({
+              name:"Health",
+              params:{
+              uid:uid,code:111
+              }
+            });
           }
         })
         .catch(err => {

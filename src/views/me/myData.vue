@@ -10,9 +10,14 @@
     <van-nav-bar title="我的数据" left-text="返回" left-arrow @click-left="onClickLeft" class="top" />
     <!-- 数据 -->
     <div class="data_model">
-      <div class="data_box" >
-          <span>性别</span>
-          <span  @click="chose" v-text="msg"></span>
+      <div class="data_box">
+        <span>姓名</span>
+        <span v-text="this.list.uname"></span>
+      </div>
+      <hr />
+      <div class="data_box">
+        <span>性别</span>
+        <span @click="chose">{{this.list.sex==0?"女":"男"}}</span>
         <van-popup v-model="show" position="bottom">
           <van-picker
             show-toolbar
@@ -24,6 +29,7 @@
           ></van-picker>
         </van-popup>
       </div>
+      <hr />
       <!-- <div class="data_box">
 <span>性别</span>
 <span>女</span> 
@@ -32,18 +38,21 @@
      </select> 
       </div>-->
 
-      <div class="data_box">
+      <div class="data_box" id="height">
         <span>身高</span>
-        <span>168cm</span>
+        <span  >{{this.list.height}}</span>
       </div>
+      <hr>
       <div class="data_box" @click="changeAge">
         <span>年龄</span>
-        <span ></span>
+        <span>{{this.list.age}}</span>
       </div>
+      <hr />
       <div class="data_box">
         <span>体重</span>
-        <span>40kg</span>
+        <span>{{this.list.weight}}</span>
       </div>
+      <hr />
     </div>
   </div>
 </template>
@@ -53,33 +62,55 @@ export default {
     return {
       show: false,
       columns: ["男", "女", "保密"],
-      msg:"男"
+      list: [],
       // list:[{id:1,sex:"男"},{id:1,sex:"女"},{id:1,sex:"保密"}]
     };
   },
+  created() {
+    this.select();
+  },
   methods: {
+    select() {
+      this.axios
+        .get("http://localhost:8088/userinfo/2")
+        .then(res => {
+          this.list = res.data;
+          console.log(this.list);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    },
     onClickLeft() {
       this.$router.push("./");
     },
-    chose(){
-        this.show=true;
+    chose() {
+      this.show = true;
     },
-   onCancel(){
-       this.show=false;
-   },
-   onConfirm(){
-       this.show=false;
-   },
-    onChange(picker,value,index){
-        this.msg=value;
-        console.log(value);
+    onCancel() {
+      this.show = false;
+    },
+    onConfirm() {
+      this.show = false;
+    },
+    onChange(picker, value, index) {
+      this.list.sex=value;
+      this.axios.get("http://localhost:8088/userinfo/2", {
+        params: {
+        sex:this.list.sex
+        }
+      })
+      .then(res => {
+        console.log(res);
+      })
+      this.list.sex = value;
+      console.log(value);
     },
     changeAge() {}
   }
 };
 </script>
 <style scoped>
-
 /* 头部 */
 .top {
   top: 24px;
@@ -111,8 +142,8 @@ export default {
 } */
 
 /* 数据 */
-.data_model{
-    margin-top:24px;
+.data_model {
+  margin-top: 24px;
 }
 .data_box {
   width: 100%;
