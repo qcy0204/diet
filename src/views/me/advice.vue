@@ -1,52 +1,48 @@
 <template>
-    <div>
-        <!-- 1.顶部 -->
-       <my-header></my-header>
-       <div class="advice_header">
-           <img src="../../assets/home/xz.png" alt="" @click="backmain()">
-           <span>意见反馈</span>
-           <span>回复</span>
-       </div>
-        <!-- 输入内容 -->
-        <div class="advice_input">
-            <div class="advice_title">健身食谱与你共同见证更好的自己</div>
-            <textarea cols="2" rows="6" class="input_1" placeholder="在这里留下您的需求和建议"></textarea>
-            <input class="input_2" type="texterae" placeholder="(选填)请输入联系方式">
-            <button class="button_1">提交</button>
-        </div>
+<div>
+    <!-- 1.顶部 -->
+    <my-header></my-header>
+    <van-nav-bar title="意见反馈" left-text="返回" right-text="回复" left-arrow @click-left="onClickLeft" class="top"/>
+    <!-- <div class="advice_header">
+        <img src="../../assets/home/xz.png" alt="" @click="backmain()">
+        <span>意见反馈</span>
+        <span>回复</span>
+    </div> -->
+    <!-- 输入内容 -->
+    <div class="advice_input">
+        <div class="advice_title">健身食谱与你共同见证更好的自己</div>
+        <textarea cols="2" rows="6" class="input_1" placeholder="在这里留下您的需求和建议"></textarea>
+        <input class="input_2" type="texterae" placeholder="(选填)请输入联系方式">
+        <van-button size="large" type="primary">提交</van-button>
     </div>
+</div>
 </template>
 <script>
 export default {
-    data() {
-        return {
-            
-        }
-    },
-    methods: {
-        backmain(){
-            this.$router.push("/")
-        }
+data() {
+    return {
+        
     }
+},
+methods: {
+    onClickLeft(){
+        this.$router.push("./")
+    }
+}
 }
 </script>
 <style scoped>
 /* 头部 */
-.advice_header{
-    width: 100%;
-    background: #35ce9f;
-    position: fixed;
+.top{
     top:24px;
-    color: white;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    padding: 7px 20px;
-    box-sizing: border-box;
+    background: #35ce9f
 }
-.advice_header img{
-    width: 14px;
-    height: 14px;
+.van-nav-bar__title {
+    max-width: 60%;
+    margin: 0 auto;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
 }
 /* 输入内容 */
 .advice_input{
@@ -60,7 +56,7 @@ export default {
 .input_1,.input_2{
     width: 100%;
     border:1px solid #dee1e2;
-    font-size: 15px;
+    font-size: 14px;
     padding: 5px;
     box-sizing: border-box;
 }
