@@ -141,7 +141,6 @@ export default {
       showIndex: 0
     };
   },
-<<<<<<< HEAD
   methods: {
     tologin() {
           if (sessionStorage.getItem('userName')) {
@@ -155,25 +154,6 @@ export default {
       this.changePointX = this.startPointX;
       let slider = document.getElementById("slider");
       slider.style.marginLeft = `-${120 * index}px`;
-=======
-  created() {
-    this.getRouterData()
-  },
-  methods:{
-    //获取登录页面传入的UID参数
-    getRouterData() {
-      this.uid = this.$route.params.uid
-      this.code = this.$route.params.code
-      console.log('uid', this.uid)
-      console.log('code', this.code)
-    },
-    tologin(){
-      if(this.uid==undefined){
-      this.$router.push("./login")
-      }else{
-        this.$router.push("./me_data")
-      }
->>>>>>> 348fa1da8f42ed4c3eea72fe20170ecb2a710e3c
     },
     touchstart(e) {
       this.startPointX = e.changedTouches[0].pageX;
