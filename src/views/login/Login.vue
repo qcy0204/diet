@@ -59,17 +59,21 @@ export default {
       var obj = { uname: uname, upwd: upwd };
       this.axios
         .get("login", { params: obj })
-        .then(result => {
-          console.log(result.data.code);
-          var code = result.data.code;
+        .then(res => {
+          console.log(res.data);
+          var code = res.data.code;
           if (code == -1) {
             this.$messagebox("提示", "您的用户名或者密码有误");
           } else {
             this.$router.push("/");
+            //将用户名放入sessionStorage
+            sessionStorage.setItem("userName", res.data.uname);
+            //将用户名放入vuex
+            this.$store.dispatch("setUser", res.data.uname);
           }
         })
         .catch(err => {
-          console.error(err);
+          console.log(err);
         });
     },
     logpho(){

@@ -28,7 +28,7 @@ import Mycollect from "./views/me/myCollect.vue"
 import Advice from "./views/me/advice.vue"
 import CopyRight from "./views/me/copyright.vue"
 import Privacy from "./views/me/privacy.vue"
-
+import map from './views/map/Map.vue';
 
 Vue.use(Router)
 
@@ -53,6 +53,10 @@ export default new Router({
   {path:"/me_collect",component:Mycollect},
   {path:"/me_advice",component:Advice},
   {path:"/me_copyright",component:CopyRight},
-  {path:"/me_privacy",component:Privacy}
+  {path:"/me_privacy",component:Privacy},
+  //功能五:百度地图
+  {path:"/map",
+  name:"map",
+  component:map},
   ]
 })

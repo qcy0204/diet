@@ -28,56 +28,55 @@
       <!-- 编辑 -->
       <div class="compile">
         <div class="edit">
-          <router-link to="" @click.native="tologin">
-             <img src="../../assets/img/none.png" />
+          <router-link to @click.native="tologin">
+            <img src="../../assets/img/none.png" />
           </router-link>
-         
         </div>
       </div>
     </div>
 
     <!-- 轮播 -->
     <div class="row1">
-    <div class="carousel">
-      <van-swipe :autoplay="3000" class="swipe">
-        <van-swipe-item>
-          <img src="../../assets/img/car1.png" class="img_a" />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="../../assets/img/car2.png" class="img_a" />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="../../assets/img/car3.png" class="img_a" />
-        </van-swipe-item>
-      </van-swipe>
-    </div>
-    <!-- 食物库  分类 注意  测一测 -->
-    <div class="nav">
-      <div>
-        <div class="cle cle_color_c1">
-          <img src="../../assets/img/Box.png" class="nav_img" />
-        </div>
-        <h5 class="nav_font">食物库</h5>
+      <div class="carousel">
+        <van-swipe :autoplay="3000" class="swipe">
+          <van-swipe-item>
+            <img src="../../assets/img/car1.png" class="img_a" />
+          </van-swipe-item>
+          <van-swipe-item>
+            <img src="../../assets/img/car2.png" class="img_a" />
+          </van-swipe-item>
+          <van-swipe-item>
+            <img src="../../assets/img/car3.png" class="img_a" />
+          </van-swipe-item>
+        </van-swipe>
       </div>
-      <div>
-        <div class="cle cle_color_c2">
-          <img src="../../assets/img/coffee.png" class="nav_img" />
+      <!-- 食物库  分类 注意  测一测 -->
+      <div class="nav">
+        <div>
+          <div class="cle cle_color_c1">
+            <img src="../../assets/img/Box.png" class="nav_img" />
+          </div>
+          <h5 class="nav_font">食物库</h5>
         </div>
-        <h5 class="nav_font">轻食分类</h5>
-      </div>
-      <div>
-        <div class="cle cle_color_c3">
-          <img src="../../assets/img/bell.png" class="nav_img" />
+        <div>
+          <div class="cle cle_color_c2">
+            <img src="../../assets/img/coffee.png" class="nav_img" />
+          </div>
+          <h5 class="nav_font">轻食分类</h5>
         </div>
-        <h5 class="nav_font">饮食注意</h5>
-      </div>
-      <div>
-        <div class="cle cle_color_c4">
-          <img src="../../assets/img/dumbbell.png" class="nav_img" />
+        <div>
+          <div class="cle cle_color_c3">
+            <img src="../../assets/img/bell.png" class="nav_img" />
+          </div>
+          <h5 class="nav_font">饮食注意</h5>
         </div>
-        <h5 class="nav_font">测一测</h5>
+        <div>
+          <div class="cle cle_color_c4">
+            <img src="../../assets/img/dumbbell.png" class="nav_img" />
+          </div>
+          <h5 class="nav_font">测一测</h5>
+        </div>
       </div>
-    </div>
     </div>
     <!-- 今日饮食 -->
     <div class="today">
@@ -112,14 +111,18 @@
             <span>636Kcal</span>
           </div>
         </li>
-      </ul> -->
-      <div id="slider" class="slider" >
-         <img v-for="(src,index) in imgSrc" :key="index" :src="imgSrc[index].urim" 
-         @touchstart="touchstart"
-         @touchmove="touchmove" class="slider_img"/>
+      </ul>-->
+      <div id="slider" class="slider">
+        <img
+          v-for="(src,index) in imgSrc"
+          :key="index"
+          :src="imgSrc[index].urim"
+          @touchstart="touchstart"
+          @touchmove="touchmove"
+          class="slider_img"
+        />
       </div>
     </div>
-    
   </div>
 </template>
 <script>
@@ -127,67 +130,72 @@ export default {
   data() {
     return {
       value: "",
-       imgSrc:[
-        {urim:require('../../assets/daily/egg_cakes.jpg')},
-        {urim:require('../../assets/daily/cherry_tomato.jpg')},
-        {urim:require('../../assets/daily/milk.jpg')},
-        {urim:require('../../assets/daily/beef.jpg')}
+      imgSrc: [
+        { urim: require("../../assets/daily/egg_cakes.jpg") },
+        { urim: require("../../assets/daily/cherry_tomato.jpg") },
+        { urim: require("../../assets/daily/milk.jpg") },
+        { urim: require("../../assets/daily/beef.jpg") }
       ],
       startPointX: 0,
       changePointX: 0,
-      showIndex: 0,
-
+      showIndex: 0
     };
   },
-  methods:{
-    tologin(){
-      this.$router.push("./login")
+  methods: {
+    tologin() {
+          if (sessionStorage.getItem('userName')) {
+            this.$store.commit('userStatus',sessionStorage.getItem('userName'));
+            this.$router.push("/me_data")
+          }else{
+            this.$router.push("/login");
+          }
+        },
+    show(index) {
+      this.changePointX = this.startPointX;
+      let slider = document.getElementById("slider");
+      slider.style.marginLeft = `-${120 * index}px`;
     },
-    show(index){
-      this.changePointX=this.startPointX;
-      let slider = document.getElementById('slider');
-      slider.style.marginLeft=`-${120*index}px`;
-    },
-    touchstart(e){
+    touchstart(e) {
       this.startPointX = e.changedTouches[0].pageX;
     },
-    touchmove(e){
-      if(this.startPointX==this.changePointX){
-        return ;
+    touchmove(e) {
+      if (this.startPointX == this.changePointX) {
+        return;
       }
       let currPointX = e.changedTouches[0].pageX;
-      let leftSlide = this.startPointX-currPointX;
-      if(leftSlide>30&&this.showIndex<this.imgSrc.length-1){
-        this.show(++this.showIndex)
-      }else if(leftSlide<-30&&this.showIndex>0){
-        this.show(--this.showIndex)
+      let leftSlide = this.startPointX - currPointX;
+      if (leftSlide > 30 && this.showIndex < this.imgSrc.length - 1) {
+        this.show(++this.showIndex);
+      } else if (leftSlide < -30 && this.showIndex > 0) {
+        this.show(--this.showIndex);
       }
-    },
+    }
+  },
+  computed:{
   }
 };
 </script>
 
 <style scoped>
-.slider{
-  overflow:hidden;
+.slider {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
-  transition:1s;
-  
+  transition: 1s;
 }
-.slider img{
-  width:170px;
-  margin-right:10px
+.slider img {
+  width: 170px;
+  margin-right: 10px;
 }
 
-.row{
-  top:24px;
-  background:url("../../assets/img/bg_color.png");
+.row {
+  top: 24px;
+  background: url("../../assets/img/bg_color.png");
   background-size: 100% 200px;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
 }
-.van-search{
-  background-color: transparent !important
+.van-search {
+  background-color: transparent !important;
 }
 .complete {
   width: 100%;
@@ -197,7 +205,7 @@ export default {
 }
 .com_weight {
   width: 80%;
-  color:white;
+  color: white;
   font-size: 14px;
 }
 .com_weight .weight {
@@ -227,7 +235,7 @@ export default {
   height: 25px;
   margin-top: 5px;
 }
-.row1{
+.row1 {
   position: relative;
 }
 /* 轮播 */
@@ -255,8 +263,7 @@ export default {
   width: 90%;
   margin: 0 5%;
   position: absolute;
-  top: 75%
-  
+  top: 75%;
 }
 
 .nav .cle {
@@ -309,13 +316,13 @@ export default {
 .daily_recommend {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px
+  margin-top: 20px;
 }
-.daily_recommend div{
+.daily_recommend div {
   width: 90%;
   text-align: left;
 }
-.daily_recommend span{
+.daily_recommend span {
   font-size: 12px;
 }
 .daily_img {
